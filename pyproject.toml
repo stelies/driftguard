@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "driftguard-cli"
+version = "0.1.0"
+description = "Catch your AI-coding drift: audits Claude Code / Codex / Gemini CLI / Cursor sessions, interviews you, and writes drift guards into your agent rules. 100% local."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "stelies" }]
+keywords = ["claude-code", "codex", "gemini-cli", "cursor", "ai-agents", "productivity", "focus", "tokens"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent", "Environment :: Console"]
+dependencies = []
+
+[project.optional-dependencies]
+zstd = ["zstandard>=0.22"]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://stelies.github.io/driftguard"
+Repository = "https://github.com/stelies/driftguard"
+
+[project.scripts]
+driftguard = "driftguard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["driftguard*"]
+
+[tool.setuptools.package-data]
+driftguard = ["report/template.html", "templates/*.md"]

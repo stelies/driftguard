@@ -1,0 +1,18 @@
+__pycache__/
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+node_modules/
+web/.svelte-kit/
+web/build/
+site/.svelte-kit/
+site/build/
+graphify-out/
+# never commit anyone's real history or findings
+**/data.json
+findings*.json
+answers*.json
+scan.json
+!tests/fixtures/**
