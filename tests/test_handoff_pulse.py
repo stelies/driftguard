@@ -10,7 +10,7 @@ def test_handoff_le_40_lines(dg, capsys):
     out = dg.tmp / "HANDOFF.md"
     rc = handoff.run(SimpleNamespace(session="latest", dir=str(dg.proj), out=str(out)))
     assert rc == 0
-    text = out.read_text()
+    text = out.read_text(encoding="utf-8")
     lines = text.splitlines()
     assert 0 < len(lines) <= 40
     assert lines[0].startswith("## Handoff — 2026-01-05")
@@ -40,7 +40,7 @@ def test_pulse_silent_on_second_run(dg, capsys):
     pulse.run(a)  # baseline
     pulse.run(a)
     assert capsys.readouterr().out == ""
-    st = json.loads((dg.data / "pulse.json").read_text())
+    st = json.loads((dg.data / "pulse.json").read_text(encoding="utf-8"))
     assert "demo-app" in st["known_projects"] and st["last_run"]
 
 
@@ -50,7 +50,7 @@ def test_pulse_reports_new_and_reopened_projects(dg, capsys):
     pulse.run(a)
     capsys.readouterr()
     # a brand-new project session appears, and a parked one gets reopened
-    st = json.loads((dg.data / "pulse.json").read_text())
+    st = json.loads((dg.data / "pulse.json").read_text(encoding="utf-8"))
     st["known_projects"] = []
     st["last_run"] = "2020-01-01T00:00:00+00:00"
     (dg.data / "pulse.json").write_text(json.dumps(st))

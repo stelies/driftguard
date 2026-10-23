@@ -29,7 +29,7 @@ def test_merge_override_and_pronouns(dg):
                                   "registry": {"app": {"status": "PARKED"}}})
     rc = ingest.run(SimpleNamespace(findings=[f1, f2], answers=ans))
     assert rc == 0
-    out = json.loads((dg.data / "findings.json").read_text())
+    out = json.loads((dg.data / "findings.json").read_text(encoding="utf-8"))
     app = next(p for p in out["projects"] if p["name"] == "app")
     assert len(out["projects"]) == 2 and len(out["sessions"]) == 2
     assert app["what_it_is"] == "Later wins"
@@ -48,4 +48,4 @@ def test_answers_survive_a_findings_only_refresh(dg):
     ans = _write(dg.tmp / "a.json", {"tone": "brutal"})
     ingest.run(SimpleNamespace(findings=[f], answers=ans))
     ingest.run(SimpleNamespace(findings=[f], answers=None))
-    assert json.loads((dg.data / "findings.json").read_text())["answers"]["tone"] == "brutal"
+    assert json.loads((dg.data / "findings.json").read_text(encoding="utf-8"))["answers"]["tone"] == "brutal"

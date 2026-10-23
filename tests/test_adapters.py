@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import json
 
@@ -11,7 +12,7 @@ def test_claude(dg):
     assert s["agent"] == "claude" and s["title"] == "Fix the demo widget" and s["project"] == "demo-app"
     assert [p["txt"] for p in s["prompts"]] == ["fix the widget layout in demo app please", "now add tests for the widget",
                                                  "ship it and update the docs"]  # tool_result + reminder stripped
-    assert s["tools"] == 2 and s["files"] == [str(dg.proj / "src/widget.py")]
+    assert s["tools"] == 2 and [os.path.normpath(f) for f in s["files"]] == [os.path.normpath(str(dg.proj / "src/widget.py"))]
     assert s["tokens"] == {"input": 11, "output": 22, "cache_read": 100, "cache_write": 5}  # duplicate message id counted once
     assert len(s["usage"]) == 2
     assert s["todos"][1] == "[in_progress] add tests" and s["bot"] is False
