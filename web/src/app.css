@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @source '.';
-@source "../../site";
+
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 @import 'tw-animate-css';
