@@ -40,7 +40,8 @@ def dg(work, monkeypatch):
     def put(src, dst, text_sub=True):
         dst.parent.mkdir(parents=True, exist_ok=True)
         txt = (FIX / src).read_text(encoding="utf-8")
-        dst.write_text(txt.replace("__CWD__", str(proj)) if text_sub else txt, encoding="utf-8")
+        # JSON-escape the path: Windows backslashes would otherwise make the fixture lines invalid JSON.
+        dst.write_text(txt.replace("__CWD__", json.dumps(str(proj))[1:-1]) if text_sub else txt, encoding="utf-8")
         return dst
 
     cdir = home / ".claude" / "projects" / "-home-work-demo-app"
