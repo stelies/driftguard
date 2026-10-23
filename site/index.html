@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>driftguard: catch your AI-coding drift</title>
+<meta name="description" content="Audits your Claude Code, Codex, Gemini CLI and Cursor history, interviews you, and writes drift guards into your agent's rules. 100% local, zero dependencies." />
+<meta property="og:title" content="driftguard: your agent will build anything. driftguard asks whether you should." />
+<meta property="og:image" content="https://stelies.github.io/driftguard/og.png" />
+<link rel="icon" href="logo.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-dvh bg-background text-foreground antialiased">
+<header class="sticky top-2 z-20 mx-auto mt-2 flex max-w-6xl items-center gap-3 rounded-2xl bg-muted/60 px-4 py-2 shadow-md backdrop-blur-xl">
+  <img src="logo.svg" class="size-7" alt="" />
+  <span class="font-semibold">driftguard</span>
+  <nav class="ml-auto hidden gap-1 text-sm sm:flex">
+    <a class="rounded-lg px-3 py-1.5 text-muted-foreground hover:bg-accent hover:text-foreground" href="#install">Install</a>
+    <a class="rounded-lg px-3 py-1.5 text-muted-foreground hover:bg-accent hover:text-foreground" href="#how">How it works</a>
+    <a class="rounded-lg px-3 py-1.5 text-muted-foreground hover:bg-accent hover:text-foreground" href="#compare">Compare</a>
+    <a class="rounded-lg px-3 py-1.5 text-muted-foreground hover:bg-accent hover:text-foreground" href="demo/">Live demo</a>
+  </nav>
+  <a class="rounded-lg bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:opacity-90" href="https://github.com/stelies/driftguard">GitHub</a>
+</header>
+
+<main class="mx-auto max-w-6xl px-4">
+  <section class="py-20 text-center">
+    <div class="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-border/30 px-3 py-1 text-xs text-muted-foreground">Claude Code · Codex · Gemini CLI · Cursor · 100% local</div>
+    <h1 class="mx-auto max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">Your agent will build anything.<br /><span class="text-muted-foreground">driftguard asks whether you should.</span></h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">It audits your AI-coding history, interviews you, shows where your focus breaks, and writes <b class="text-foreground">drift guards</b> into your agent's rules, so the next session stops you before a bug fix turns into project #8.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <button class="dg-copy rounded-xl bg-card px-5 py-3 font-mono text-sm shadow-sm hover:bg-accent" data-copy="pipx install driftguard-cli">$ pipx install driftguard-cli <span class="ml-2 text-muted-foreground">⧉</span></button>
+      <a class="rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:opacity-90" href="demo/">Open the live demo →</a>
+    </div>
+  </section>
+
+  <section class="grid gap-3 pb-16 sm:grid-cols-3">
+    <div class="rounded-xl bg-card p-6 shadow-sm"><div class="text-4xl font-semibold tabular-nums">65%</div><p class="mt-2 text-sm text-muted-foreground">of the author's real sessions happened in one month, mostly on projects they'd never use.</p></div>
+    <div class="rounded-xl bg-card p-6 shadow-sm"><div class="text-4xl font-semibold tabular-nums">#2</div><p class="mt-2 text-sm text-muted-foreground">the prompt where focus broke: 1 in 3 follow-ups was a new topic, a 40-min absence or frustration.</p></div>
+    <div class="rounded-xl bg-card p-6 shadow-sm"><div class="text-4xl font-semibold tabular-nums">0</div><p class="mt-2 text-sm text-muted-foreground">LLM tokens for scanning, metrics, reports, guards and handoffs. Your agent only does the judgment.</p></div>
+  </section>
+
+  <section class="pb-20">
+    <div class="overflow-hidden rounded-2xl border border-border/20 bg-card shadow-md">
+      <div class="flex items-center gap-2 border-b border-border/20 px-4 py-2 text-xs text-muted-foreground"><span class="size-2.5 rounded-full bg-muted"></span><span class="size-2.5 rounded-full bg-muted"></span><span class="size-2.5 rounded-full bg-muted"></span><span class="ml-2">localhost:5191 · synthetic demo data</span><a class="ml-auto hover:text-foreground" href="demo/">open full screen ↗</a></div>
+      <iframe src="demo/" title="driftguard demo report" class="h-[720px] w-full" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <h2 class="text-2xl font-semibold tracking-tight">What it does</h2>
+    <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-xl bg-card p-5 shadow-sm"><div class="font-medium">🧭 Drift guard</div><p class="mt-1 text-sm text-muted-foreground">A managed block in your global rules: a project registry plus protocols. Stop and poll when you drift, gate new projects ("which active project pauses?"), and calm down when you're frustrated.</p></div>
+      <div class="rounded-xl bg-card p-5 shadow-sm"><div class="font-medium">📌 Purpose blocks</div><p class="mt-1 text-sm text-muted-foreground">Each project's CLAUDE.md / AGENTS.md / GEMINI.md / .cursor/rules gets its purpose, done-condition and the drift traps you actually fell into, with dates.</p></div>
+      <div class="rounded-xl bg-card p-5 shadow-sm"><div class="font-medium">🎤 Interview</div><p class="mt-1 text-sm text-muted-foreground">Your agent polls you about goals, plan, tone and "is this verdict fair?". Your answers override the AI.</p></div>
+      <div class="rounded-xl bg-card p-5 shadow-sm"><div class="font-medium">🧠 Brain-disconnect map</div><p class="mt-1 text-sm text-muted-foreground">Focus decay by prompt position, an hour × weekday heatmap, and per-session strips that show where you zone out.</p></div>
+      <div class="rounded-xl bg-card p-5 shadow-sm"><div class="font-medium">🪫 Token crisis mode</div><p class="mt-1 text-sm text-muted-foreground">Detects heavy usage and goes frugal. <code>driftguard handoff</code> writes a ≤40-line HANDOFF.md so you can restart cheap.</p></div>
+      <div class="rounded-xl bg-card p-5 shadow-sm"><div class="font-medium">🔁 Pulse</div><p class="mt-1 text-sm text-muted-foreground">An opt-in SessionStart hook that checks new sessions for zero tokens and stays silent unless something needs you.</p></div>
+    </div>
+  </section>
+
+  <section id="install" class="scroll-mt-20 pb-20">
+    <h2 class="text-2xl font-semibold tracking-tight">Install</h2>
+    <div class="mt-4 flex flex-wrap gap-1" role="tablist">
+      <button class="dg-tab rounded-lg px-3 py-1.5 text-sm" data-tab="unix">macOS / Linux</button>
+      <button class="dg-tab rounded-lg px-3 py-1.5 text-sm" data-tab="win">Windows</button>
+      <button class="dg-tab rounded-lg px-3 py-1.5 text-sm" data-tab="claude">Claude Code</button>
+      <button class="dg-tab rounded-lg px-3 py-1.5 text-sm" data-tab="codex">Codex</button>
+      <button class="dg-tab rounded-lg px-3 py-1.5 text-sm" data-tab="gemini">Gemini CLI</button>
+      <button class="dg-tab rounded-lg px-3 py-1.5 text-sm" data-tab="cursor">Cursor</button>
+    </div>
+    <div class="mt-3 rounded-xl bg-card p-5 shadow-sm">
+      <pre class="dg-pane overflow-x-auto font-mono text-sm" data-pane="unix">curl -fsSL https://raw.githubusercontent.com/stelies/driftguard/main/scripts/install.sh | sh</pre>
+      <pre class="dg-pane overflow-x-auto font-mono text-sm" data-pane="win">irm https://raw.githubusercontent.com/stelies/driftguard/main/scripts/install.ps1 | iex</pre>
+      <pre class="dg-pane overflow-x-auto font-mono text-sm" data-pane="claude">/plugin marketplace add stelies/driftguard
+/plugin install driftguard@driftguard
+/driftguard</pre>
+      <pre class="dg-pane overflow-x-auto font-mono text-sm" data-pane="codex">pipx install driftguard-cli
+# copy integrations/codex/skills/driftguard → ~/.codex/skills/
+# then ask Codex: run driftguard</pre>
+      <pre class="dg-pane overflow-x-auto font-mono text-sm" data-pane="gemini">pipx install driftguard-cli
+# copy integrations/gemini/commands/driftguard.toml → ~/.gemini/commands/
+/driftguard</pre>
+      <pre class="dg-pane overflow-x-auto font-mono text-sm" data-pane="cursor">pipx install driftguard-cli
+# copy integrations/cursor/driftguard.mdc → .cursor/rules/
+# then ask the agent: run driftguard</pre>
+      <button class="dg-copy-pane mt-3 rounded-lg bg-muted px-3 py-1.5 text-xs hover:bg-accent">Copy</button>
+    </div>
+  </section>
+
+  <section id="how" class="scroll-mt-20 pb-20">
+    <h2 class="text-2xl font-semibold tracking-tight">How it works</h2>
+    <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <li class="rounded-xl bg-card p-5 shadow-sm"><div class="text-xs text-muted-foreground">1 · 0 tokens</div><div class="mt-1 font-medium">Scan</div><p class="mt-1 text-sm text-muted-foreground">Reads every agent's local history, incrementally, then picks a mode: new user → more diagnostics; heavy usage → frugal.</p></li>
+      <li class="rounded-xl bg-card p-5 shadow-sm"><div class="text-xs text-muted-foreground">2 · your agent</div><div class="mt-1 font-medium">Score digests</div><p class="mt-1 text-sm text-muted-foreground">Cheap subagents read prompt-only digests (often 100× smaller than transcripts) and score sessions and projects.</p></li>
+      <li class="rounded-xl bg-card p-5 shadow-sm"><div class="text-xs text-muted-foreground">3 · you</div><div class="mt-1 font-medium">Interview</div><p class="mt-1 text-sm text-muted-foreground">Polls about goals, limits and verdicts. Your answers win over the AI.</p></li>
+      <li class="rounded-xl bg-card p-5 shadow-sm"><div class="text-xs text-muted-foreground">4 · 0 tokens</div><div class="mt-1 font-medium">Report + guard</div><p class="mt-1 text-sm text-muted-foreground">An interactive report on localhost; guard blocks are shown as a diff and applied only after you agree.</p></li>
+    </ol>
+  </section>
+
+  <section id="compare" class="scroll-mt-20 pb-20">
+    <h2 class="text-2xl font-semibold tracking-tight">Use it with the others</h2>
+    <div class="mt-4 overflow-x-auto rounded-xl bg-card shadow-sm">
+      <table class="w-full text-sm">
+        <thead class="text-left text-muted-foreground"><tr class="border-b border-border/20"><th class="p-3"></th><th class="p-3">driftguard</th><th class="p-3">/insights</th><th class="p-3">ccusage</th><th class="p-3">sniffly</th></tr></thead>
+        <tbody>
+          <tr class="border-b border-border/10"><td class="p-3">Token &amp; cost accounting</td><td class="p-3">✓</td><td class="p-3">–</td><td class="p-3">✓✓</td><td class="p-3">✓</td></tr>
+          <tr class="border-b border-border/10"><td class="p-3">Friction / usage report</td><td class="p-3">✓</td><td class="p-3">✓✓</td><td class="p-3">–</td><td class="p-3">✓</td></tr>
+          <tr class="border-b border-border/10"><td class="p-3">Cross-project drift verdicts</td><td class="p-3 font-medium">✓</td><td class="p-3">–</td><td class="p-3">–</td><td class="p-3">–</td></tr>
+          <tr class="border-b border-border/10"><td class="p-3">Interview that overrides the AI</td><td class="p-3 font-medium">✓</td><td class="p-3">–</td><td class="p-3">–</td><td class="p-3">–</td></tr>
+          <tr class="border-b border-border/10"><td class="p-3">Writes guards into agent rules</td><td class="p-3 font-medium">✓</td><td class="p-3">suggests</td><td class="p-3">–</td><td class="p-3">–</td></tr>
+          <tr><td class="p-3">Codex · Gemini · Cursor</td><td class="p-3">✓</td><td class="p-3">–</td><td class="p-3">partial</td><td class="p-3">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="mx-auto max-w-6xl px-4 pb-10 text-sm text-muted-foreground">MIT · <a class="hover:text-foreground" href="https://github.com/stelies/driftguard">github.com/stelies/driftguard</a> · Report UI built on components from llama.cpp's web UI (MIT)</footer>
+
+<script>
+  const tabs = [...document.querySelectorAll('.dg-tab')], panes = [...document.querySelectorAll('.dg-pane')];
+  const pick = (id) => {
+    tabs.forEach((t) => t.classList.toggle('bg-accent', t.dataset.tab === id));
+    tabs.forEach((t) => t.classList.toggle('text-muted-foreground', t.dataset.tab !== id));
+    panes.forEach((p) => (p.hidden = p.dataset.pane !== id));
+  };
+  tabs.forEach((t) => t.addEventListener('click', () => pick(t.dataset.tab)));
+  const ua = navigator.userAgent;
+  pick(/Windows/.test(ua) ? 'win' : 'unix');
+  const copied = (el, txt) => navigator.clipboard.writeText(txt).then(() => { const o = el.innerHTML; el.textContent = 'Copied ✓'; setTimeout(() => (el.innerHTML = o), 1200); });
+  document.querySelectorAll('.dg-copy').forEach((b) => b.addEventListener('click', () => copied(b, b.dataset.copy)));
+  document.querySelector('.dg-copy-pane').addEventListener('click', (e) => copied(e.target, panes.find((p) => !p.hidden).textContent));
+</script>
+</body>
+</html>

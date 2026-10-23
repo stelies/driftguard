@@ -1,0 +1,31 @@
+{
+	"name": "driftguard-report",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"description": "Interactive report UI for driftguard. `npm run build` writes ../driftguard/report/template.html (single file).",
+	"scripts": {
+		"dev": "vite dev --port 5192",
+		"build": "vite build && node finish.mjs"
+	},
+	"devDependencies": {
+		"@lucide/svelte": "1.46.0",
+		"@sveltejs/adapter-static": "3.0.10",
+		"@sveltejs/kit": "2.70.2",
+		"@sveltejs/vite-plugin-svelte": "6.2.1",
+		"@tailwindcss/forms": "0.5.10",
+		"@tailwindcss/typography": "0.5.16",
+		"@tailwindcss/vite": "4.1.11",
+		"@types/d3": "7.4.3",
+		"bits-ui": "2.18.1",
+		"clsx": "2.1.1",
+		"d3": "7.9.0",
+		"svelte": "5.56.1",
+		"tailwind-merge": "3.6.0",
+		"tailwind-variants": "3.3.1",
+		"tailwindcss": "4.3.0",
+		"tw-animate-css": "1.4.0",
+		"typescript": "5.9.3",
+		"vite": "7.3.6"
+	}
+}

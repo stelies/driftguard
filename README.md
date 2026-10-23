@@ -17,7 +17,7 @@ Audits your Claude Code · Codex · Gemini CLI · Cursor history, interviews you
 
 [**Live demo →**](https://stelies.github.io/driftguard/demo/) · [Website](https://stelies.github.io/driftguard) · [Install](#install) · [How it works](#how-it-works) · [Token crisis mode](#token-crisis-mode)
 
-<img src="docs/assets/report.gif" width="900" alt="driftguard report: motivation timeline, brain-disconnect map, 3D views">
+<img src="docs/assets/focus-map.png" width="900" alt="driftguard report: focus map (where your attention breaks, by prompt position and hour)">
 
 </div>
 
@@ -45,6 +45,8 @@ Analytics tools show you numbers. driftguard turns them into **rules your agent 
 | 📊 **Interactive report** | Motivation timeline, prompt-quality coaching with rewrites of *your* worst prompts, a **brain-disconnect map**, token spend, project kill/keep board, drift graph, 3D views. One HTML file, opens offline. |
 | 🪫 **Token crisis mode** | Detects heavy usage and switches to frugal mode; `driftguard handoff` writes a ≤40-line HANDOFF.md so you can restart cheap. |
 | 🔁 **Pulse** | `driftguard pulse` (opt-in SessionStart hook) checks new sessions for **zero tokens** and speaks up only when something needs attention. |
+
+<p align="center"><img src="docs/assets/brain-terrain.png" width="720" alt="3D brain terrain: prompts per hour × weekday, red = focus breaks"><br><sub>3D "brain terrain": prompts per hour × weekday; red = where you disconnect. Drag to rotate in the <a href="https://stelies.github.io/driftguard/demo/">live demo</a>.</sub></p>
 
 ## Install
 

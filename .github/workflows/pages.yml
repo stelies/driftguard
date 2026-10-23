@@ -19,6 +19,8 @@ jobs:
       - name: synthetic demo (no real user data)
         run: python scripts/make_demo_data.py --out _site/demo/index.html
       - run: cp -r site/* _site/ && touch _site/.nojekyll
+      - name: landing page uses the report's compiled CSS (llama.cpp web UI components)
+        run: python -c "import re;t=open('driftguard/report/template.html',encoding='utf-8').read();h=t[:t.index('</head>')];open('_site/style.css','w',encoding='utf-8').write(re.search(r'<style[^>]*>(.*?)</style>',h,re.S).group(1))"
       - name: privacy guard
         run: "! grep -rIl -e '/home/' -e 'C:\\\\Users\\\\' _site/ || (echo 'real paths leaked into site' && exit 1)"
       - uses: actions/upload-pages-artifact@v3
