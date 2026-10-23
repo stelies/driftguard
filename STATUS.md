@@ -1,0 +1,7 @@
+## Handoff — 2026-10-23
+**Goal:** Ship driftguard publicly: `stelies/driftguard` repo, `driftguard-cli` on PyPI, site at stelies.github.io/driftguard (learning project, time-box 1 week).
+**Done:** CLI (scan/digest/ingest/report/guard/handoff/pulse/budget), 4 adapters (Codex/Gemini/Cursor on fixtures only), report UI (web/ → driftguard/report/template.html), synthetic demo + landing (site/), skills for Claude/Codex/Gemini/Cursor + plugin marketplace, installers, CI/Pages/release workflows, README. 33 tests pass. Parity with ClaudeAudit: 235/124/818. Local commits only, author = GitHub noreply.
+**In progress:** nothing.
+**Next step:** With the user's OK: `gh repo create stelies/driftguard --public --source . --push`, then Settings → Pages → Source "GitHub Actions"; on pypi.org add a trusted publisher (repo stelies/driftguard, workflow release.yml, env pypi) and push tag v0.1.0.
+**Blockers/open questions:** Codex/Gemini/Cursor parsers untested on real data; README hero is a cropped screenshot (record a GIF on a normal screen); token target (<1/3 of the original run) not measured with a real skill run.
+**Do not redo:** don't use the URL hash in the report (hash router 404s); landing CSS = first <style> in template <head> only (the bundle embeds SvelteKit's error-page <style>); finish.mjs must strip `<link … rel="modulepreload">` with href-first attribute order; 3D loop must not resize the canvas per frame.
