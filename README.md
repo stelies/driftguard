@@ -27,11 +27,11 @@ Audits your Claude Code · Codex · Gemini CLI · Cursor history, interviews you
 
 Vibe coding makes starting things free. The cost shows up later: seven half-built side projects, a usage limit hit every week, and prompts that slid from *"fix these 3 bugs"* to *"uhhh make it 3D or whatever"*.
 
-driftguard was built after one developer ran it on **235 of their own sessions** and found:
+Typical patterns driftguard surfaces from your own history:
 
-- **65%** of their real sessions happened in a single month, mostly on projects they'd never use
-- their focus broke at **prompt #2**: 1 in 3 follow-ups was a new topic, a 40-minute absence, or frustration
-- "do whatever you want" preceded almost every rage moment
+- a burst month where most sessions went into projects you never use
+- focus breaking right after the first answer: the second prompt is a new topic, a long absence, or frustration
+- vague delegation ("do whatever you want") right before the sessions you rage at
 
 Analytics tools show you numbers. driftguard turns them into **rules your agent follows every session**.
 
@@ -185,7 +185,7 @@ If you only want token numbers, use ccusage. If you want the agent to **stop you
 ## FAQ
 
 <details><summary><b>Does it cost tokens?</b></summary>
-The CLI costs zero. The optional scoring pass reads compact digests (on the author's 235 sessions: ~93k tokens across 5 chunks, versus roughly 1 GB of raw transcripts). In frugal mode it shrinks further, or you can skip it and keep a metrics-only report.
+The CLI costs zero. The optional scoring pass reads compact prompt-only digests, typically hundreds of times smaller than the raw transcripts (a few hundred sessions come to roughly 100k tokens, split into chunks). In frugal mode it shrinks further, or you can skip it and keep a metrics-only report.
 </details>
 <details><summary><b>Will it rewrite my CLAUDE.md?</b></summary>
 Only between its own markers (<code>&lt;!-- driftguard:global v1 --&gt;</code> … <code>&lt;!-- /driftguard:global --&gt;</code>), only with <code>--apply</code>, and with a <code>.bak</code> backup. Everything outside the markers is untouched.
