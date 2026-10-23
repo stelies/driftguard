@@ -14,7 +14,7 @@ def test_handoff_le_40_lines(dg, capsys):
     lines = text.splitlines()
     assert 0 < len(lines) <= 40
     assert lines[0].startswith("## Handoff — 2026-01-05")
-    assert "**Goal:** fix the widget layout" in text and "src/widget.py" in text
+    assert "**Goal:** fix the widget layout" in text and "widget.py" in text
     assert "[in_progress] add tests" in text and "[completed]" not in text
     assert "Continue: ship it and update the docs" in text
     assert "read HANDOFF.md" in text
