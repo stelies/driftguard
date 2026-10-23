@@ -1,0 +1,1 @@
+[{"sessionId": "gem-2", "messageId": 0, "type": "user", "message": "first logged prompt", "timestamp": "2026-03-02T09:00:00Z"}, {"sessionId": "gem-2", "messageId": 1, "type": "user", "message": "second logged prompt", "timestamp": "2026-03-02T09:01:00Z"}]

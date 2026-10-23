@@ -34,8 +34,9 @@ def is_skip(t: str) -> bool:
 
 
 def looks_bot(first_prompt: str | None, source: str = "") -> bool:
-    s = source.replace("\\", "/")
-    if "/-tmp" in s or "/tmp/" in s:
+    # Claude names project dirs after the sanitized cwd: sessions started in temp dirs are scripted jobs.
+    parent = source.replace("\\", "/").rstrip("/").split("/")[-2:-1]
+    if parent and parent[0].startswith(("-tmp-", "-private-var-folders-", "-var-folders-")):
         return True
     return first_prompt is None or first_prompt.startswith(BOT_PREFIXES)
 

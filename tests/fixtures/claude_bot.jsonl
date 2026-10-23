@@ -1,0 +1,2 @@
+{"type": "user", "timestamp": "2026-01-05T09:00:00Z", "cwd": "__CWD__", "message": {"role": "user", "content": "Generate a title for this conversation"}}
+{"type": "assistant", "timestamp": "2026-01-05T09:00:02Z", "cwd": "__CWD__", "message": {"id": "b1", "model": "claude-test", "content": [{"type": "text", "text": "Title"}], "usage": {"input_tokens": 1, "output_tokens": 1}}}

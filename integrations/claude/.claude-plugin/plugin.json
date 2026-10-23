@@ -1,0 +1,10 @@
+{
+  "name": "driftguard",
+  "version": "0.1.0",
+  "description": "Catch AI-coding drift: audit sessions, interview you, host a report, write drift guards into your agent rules. 100% local.",
+  "author": { "name": "stelies" },
+  "homepage": "https://stelies.github.io/driftguard",
+  "repository": "https://github.com/stelies/driftguard",
+  "license": "MIT",
+  "keywords": ["focus", "drift", "tokens", "audit", "claude-code"]
+}

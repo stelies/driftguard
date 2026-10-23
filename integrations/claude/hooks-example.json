@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "driftguard pulse", "timeout": 10 } ] }
+    ]
+  }
+}

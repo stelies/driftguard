@@ -16,3 +16,4 @@ findings*.json
 answers*.json
 scan.json
 !tests/fixtures/**
+tests/.work/

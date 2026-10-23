@@ -1,0 +1,7 @@
+{
+  "name": "driftguard",
+  "owner": { "name": "stelies" },
+  "plugins": [
+    { "name": "driftguard", "source": "./integrations/claude", "description": "Catch AI-coding drift: audit, interview, report, guard. 100% local." }
+  ]
+}
