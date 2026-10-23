@@ -1,23 +1,23 @@
 <div align="center">
 
-<img src="docs/assets/logo.svg" width="84" alt="driftguard logo">
+<img src="https://raw.githubusercontent.com/stelies/driftguard/main/docs/assets/logo.svg" width="84" alt="driftguard logo">
 
 # driftguard
 
 **Your AI coding agent will build anything you ask. driftguard asks whether you should.**
 
-Audits your Claude Code · Codex · Gemini CLI · Cursor history, interviews you, hosts an interactive report on localhost, and writes **drift guards** into your agent's rules, so the next session catches you before a bug fix turns into a new app.
+Audits your Claude Code · Codex · Antigravity · Cursor history, interviews you, hosts an interactive report on localhost, and writes **drift guards** into your agent's rules, so the next session catches you before a bug fix turns into a new app.
 
 [![CI](https://github.com/stelies/driftguard/actions/workflows/ci.yml/badge.svg)](https://github.com/stelies/driftguard/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/driftguard-cli?color=155dfc)](https://pypi.org/project/driftguard-cli/)
 [![Python](https://img.shields.io/badge/python-3.9%2B-155dfc)](#install)
-[![Zero deps](https://img.shields.io/badge/dependencies-0-155dfc)](pyproject.toml)
+[![Zero deps](https://img.shields.io/badge/dependencies-0-155dfc)](https://github.com/stelies/driftguard/blob/main/pyproject.toml)
 [![100% local](https://img.shields.io/badge/data-100%25%20local-155dfc)](#privacy)
-[![License: MIT](https://img.shields.io/badge/license-MIT-155dfc)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-155dfc)](https://github.com/stelies/driftguard/blob/main/LICENSE)
 
 [**Live demo →**](https://stelies.github.io/driftguard/demo/) · [Website](https://stelies.github.io/driftguard) · [Install](#install) · [How it works](#how-it-works) · [Token crisis mode](#token-crisis-mode)
 
-<img src="docs/assets/focus-map.png" width="900" alt="driftguard report: focus map (where your attention breaks, by prompt position and hour)">
+<img src="https://raw.githubusercontent.com/stelies/driftguard/main/docs/assets/focus-map.png" width="900" alt="driftguard report: focus map (where your attention breaks, by prompt position and hour)">
 
 </div>
 
@@ -39,14 +39,14 @@ Analytics tools show you numbers. driftguard turns them into **rules your agent 
 
 | | |
 |---|---|
-| 🧭 **Drift guard** | A managed block in your global agent rules: who you are, a **project registry** (active / stalled / parked / dead), and protocols your agent follows: **stop and poll** when you drift, a **new-project gate** ("who uses it? does a tool already exist? which active project pauses?"), and a **frustration protocol**. |
-| 📌 **Purpose blocks** | Every project's `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` / `.cursor/rules` gets its purpose, done-condition and the drift traps you actually fell into, with dates. |
-| 🎤 **Interview** | Your agent polls you (goals, plan, tone, "is this verdict fair?"). **Your answers override the AI.** |
-| 📊 **Interactive report** | Motivation timeline, prompt-quality coaching with rewrites of *your* worst prompts, a **brain-disconnect map**, token spend, project kill/keep board, drift graph, 3D views. One HTML file, opens offline. |
-| 🪫 **Token crisis mode** | Detects heavy usage and switches to frugal mode; `driftguard handoff` writes a ≤40-line HANDOFF.md so you can restart cheap. |
-| 🔁 **Pulse** | `driftguard pulse` (opt-in SessionStart hook) checks new sessions for **zero tokens** and speaks up only when something needs attention. |
+| **Drift guard** | A managed block in your global agent rules: who you are, a **project registry** (active / stalled / parked / dead), and protocols your agent follows: **stop and poll** when you drift, a **new-project gate** ("who uses it? does a tool already exist? which active project pauses?"), and a **frustration protocol**. |
+| **Purpose blocks** | Every project's `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` / `.cursor/rules` gets its purpose, done-condition and the drift traps you actually fell into, with dates. |
+| **Interview** | Your agent polls you (goals, plan, tone, "is this verdict fair?"). **Your answers override the AI.** |
+| **Interactive report** | Motivation timeline, prompt-quality coaching with rewrites of *your* worst prompts, a **brain-disconnect map**, token spend, project kill/keep board, drift graph, 3D views. One HTML file, opens offline. |
+| **Token crisis mode** | Detects heavy usage and switches to frugal mode; `driftguard handoff` writes a ≤40-line HANDOFF.md so you can restart cheap. |
+| **Pulse** | `driftguard pulse` (opt-in SessionStart hook) checks new sessions for **zero tokens** and speaks up only when something needs attention. |
 
-<p align="center"><img src="docs/assets/brain-terrain.png" width="720" alt="3D brain terrain: prompts per hour × weekday, red = focus breaks"><br><sub>3D "brain terrain": prompts per hour × weekday; red = where you disconnect. Drag to rotate in the <a href="https://stelies.github.io/driftguard/demo/">live demo</a>.</sub></p>
+<p align="center"><img src="https://raw.githubusercontent.com/stelies/driftguard/main/docs/assets/brain-terrain.png" width="720" alt="3D brain terrain: prompts per hour × weekday, red = focus breaks"><br><sub>3D "brain terrain": prompts per hour × weekday; red = where you disconnect. Drag to rotate in the <a href="https://stelies.github.io/driftguard/demo/">live demo</a>.</sub></p>
 
 ## Install
 
@@ -71,7 +71,7 @@ irm https://raw.githubusercontent.com/stelies/driftguard/main/scripts/install.ps
 /plugin install driftguard@driftguard
 ```
 Then run `/driftguard`. Manual: copy `integrations/claude/skills/driftguard/` to `~/.claude/skills/`.
-Optional zero-token pulse, in `~/.claude/settings.json` (see [`hooks-example.json`](integrations/claude/hooks-example.json)):
+Optional zero-token pulse, in `~/.claude/settings.json` (see [`hooks-example.json`](https://github.com/stelies/driftguard/blob/main/integrations/claude/hooks-example.json)):
 ```json
 { "hooks": { "SessionStart": [ { "hooks": [ { "type": "command", "command": "driftguard pulse" } ] } ] } }
 ```
@@ -80,19 +80,21 @@ Optional zero-token pulse, in `~/.claude/settings.json` (see [`hooks-example.jso
 <details>
 <summary><b>Codex CLI</b></summary>
 
-Copy `integrations/codex/skills/driftguard/` to `~/.codex/skills/` and add [`AGENTS.snippet.md`](integrations/codex/AGENTS.snippet.md) to `~/.codex/AGENTS.md`. Ask Codex: *"run driftguard"*. Guards go to `AGENTS.md`.
+Copy `integrations/codex/skills/driftguard/` to `~/.codex/skills/` and add [`AGENTS.snippet.md`](https://github.com/stelies/driftguard/blob/main/integrations/codex/AGENTS.snippet.md) to `~/.codex/AGENTS.md`. Ask Codex: *"run driftguard"*. Guards go to `AGENTS.md`.
 </details>
 
 <details>
-<summary><b>Gemini CLI</b></summary>
+<summary><b>Antigravity</b></summary>
 
-Copy [`driftguard.toml`](integrations/gemini/commands/driftguard.toml) to `~/.gemini/commands/` and run `/driftguard`. Guards go to `GEMINI.md`.
+Copy [`driftguard.md`](https://github.com/stelies/driftguard/blob/main/integrations/antigravity/workflows/driftguard.md) to `~/.gemini/antigravity/global_workflows/` and run `/driftguard` in the agent panel. Guards go to `~/.gemini/GEMINI.md` (Antigravity's global rules) and each project's `GEMINI.md`. Still on the old Gemini CLI? Use [`driftguard.toml`](https://github.com/stelies/driftguard/blob/main/integrations/antigravity/commands/driftguard.toml) in `~/.gemini/commands/`.
+
+History: driftguard reads the plain-text chat logs under `~/.gemini/`. Antigravity's IDE conversations are stored as binary `.pb` files and are **not** parsed yet, so the report may show fewer Antigravity sessions than you actually had.
 </details>
 
 <details>
 <summary><b>Cursor</b></summary>
 
-Copy [`driftguard.mdc`](integrations/cursor/driftguard.mdc) to `.cursor/rules/` and ask the agent to run driftguard. Guards go to `.cursor/rules/driftguard.mdc`; Cursor has no global rules file, so paste the global block into *Settings → Rules*.
+Copy [`driftguard.mdc`](https://github.com/stelies/driftguard/blob/main/integrations/cursor/driftguard.mdc) to `.cursor/rules/` and ask the agent to run driftguard. Guards go to `.cursor/rules/driftguard.mdc`; Cursor has no global rules file, so paste the global block into *Settings → Rules*.
 </details>
 
 ## Use
@@ -177,7 +179,7 @@ Then start a fresh session: *"read HANDOFF.md and continue"*. Your guard also ga
 | Interview that overrides the AI | **✓** | – | – | – |
 | Writes persistent guards into agent rules | **✓** | suggestions | – | – |
 | New-project gate + project registry | **✓** | – | – | – |
-| Codex · Gemini CLI · Cursor | ✓ | – | partial | – |
+| Codex · Antigravity · Cursor | ✓ | – | partial | – |
 | Zero dependencies, offline single-file report | ✓ | ✓ | – | – |
 
 If you only want token numbers, use ccusage. If you want the agent to **stop you from starting project #8**, use driftguard.
@@ -193,7 +195,7 @@ Only between its own markers (<code>&lt;!-- driftguard:global v1 --&gt;</code> �
 <details><summary><b>Windows? WSL?</b></summary>
 Yes. Paths resolve via <code>%USERPROFILE%</code>; on WSL it also reads the Windows-side histories under <code>/mnt/c/Users/*</code>. CI runs on Windows, macOS and Linux.
 </details>
-<details><summary><b>Codex / Gemini / Cursor formats change. Will it break?</b></summary>
+<details><summary><b>Codex / Antigravity / Cursor formats change. Will it break?</b></summary>
 Adapters are defensive (unknown events are skipped) and covered by fixture tests. Codex <code>.jsonl.zst</code> needs <code>pip install driftguard-cli[zstd]</code>.
 </details>
 

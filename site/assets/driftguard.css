@@ -1,0 +1,24 @@
+/* driftguard-only additions on top of the shared portfolio site.css (kept verbatim). */
+
+/* Split hero: copy on the left, engraving on the right. */
+.hero .split {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center; gap: clamp(28px, 4vw, 80px); text-align: left;
+}
+.hero .split-copy .eyebrow { justify-content: flex-start; }
+.hero .split-copy .fitbox { text-align: left; margin: clamp(18px, 2vw, 34px) 0 clamp(20px, 2.4vw, 40px); }
+.hero .split-copy .lede { margin-inline: 0; max-width: 26em; }
+.hero .split-art { margin: 0; position: relative; }
+.hero .split-art img {
+  width: 100%; height: auto; max-height: min(calc(100vh - 160px), 900px); object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 47%, #000 66%, transparent 100%);
+          mask-image: radial-gradient(ellipse 70% 70% at 50% 47%, #000 66%, transparent 100%);
+}
+
+@media (max-width: 900px) {
+  .hero .split { grid-template-columns: 1fr; text-align: center; }
+  .hero .split-copy .eyebrow { justify-content: center; }
+  .hero .split-copy .fitbox { text-align: center; }
+  .hero .split-copy .lede { margin-inline: auto; }
+  .hero .split-art { max-width: 520px; margin-inline: auto; }
+}

@@ -9,5 +9,5 @@ else python3 -m pip install --user --upgrade driftguard-cli; fi
 fetch() { mkdir -p "$(dirname "$2")"; curl -fsSL "$REPO/$1" -o "$2"; }
 if [ -d "$HOME/.claude" ]; then fetch integrations/claude/skills/driftguard/SKILL.md "$HOME/.claude/skills/driftguard/SKILL.md"; fetch integrations/claude/skills/driftguard/findings-schema.md "$HOME/.claude/skills/driftguard/findings-schema.md"; say "Claude Code: skill installed → run /driftguard"; fi
 if [ -d "$HOME/.codex" ]; then fetch integrations/codex/skills/driftguard/SKILL.md "$HOME/.codex/skills/driftguard/SKILL.md"; fetch integrations/codex/skills/driftguard/findings-schema.md "$HOME/.codex/skills/driftguard/findings-schema.md"; say "Codex: skill installed → ask: run driftguard"; fi
-if [ -d "$HOME/.gemini" ]; then fetch integrations/gemini/commands/driftguard.toml "$HOME/.gemini/commands/driftguard.toml"; say "Gemini CLI: /driftguard command installed"; fi
+if [ -d "$HOME/.gemini" ]; then fetch integrations/antigravity/workflows/driftguard.md "$HOME/.gemini/antigravity/global_workflows/driftguard.md"; fetch integrations/antigravity/commands/driftguard.toml "$HOME/.gemini/commands/driftguard.toml"; say "Antigravity: /driftguard workflow installed"; fi
 say "Done. Try: driftguard scan"

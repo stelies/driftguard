@@ -1,6 +1,6 @@
 ---
 name: driftguard
-description: Audit the user's AI-coding history (Claude Code, Codex, Gemini CLI, Cursor), interview them with polls, host an interactive report on localhost, and write drift guards (personality summary, project registry, drift/new-project/frustration protocols, per-project purpose blocks) into their agent rule files. Use when the user asks to audit their sessions, stop drifting into side projects, review their prompting, cut token usage, or refresh driftguard. Also use when `driftguard pulse` printed a suggestion.
+description: Audit the user's AI-coding history (Claude Code, Codex, Antigravity, Cursor), interview them with polls, host an interactive report on localhost, and write drift guards (personality summary, project registry, drift/new-project/frustration protocols, per-project purpose blocks) into their agent rule files. Use when the user asks to audit their sessions, stop drifting into side projects, review their prompting, cut token usage, or refresh driftguard. Also use when `driftguard pulse` printed a suggestion.
 ---
 
 # driftguard

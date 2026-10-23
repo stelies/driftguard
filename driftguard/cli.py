@@ -108,7 +108,7 @@ def main(argv=None):
     ap.add_argument("--version", action="version", version=f"driftguard {__version__}")
     sub = ap.add_subparsers(dest="cmd", required=True)
     ag = argparse.ArgumentParser(add_help=False)
-    ag.add_argument("--agents", nargs="*", choices=["claude", "codex", "gemini", "cursor"], help="limit to these agents")
+    ag.add_argument("--agents", nargs="*", choices=["claude", "codex", "gemini", "antigravity", "cursor"], help="limit to these agents (antigravity = gemini: both live in ~/.gemini)")
 
     p = sub.add_parser("scan", parents=[ag], help="read histories -> scan.json")
     p.add_argument("--json", action="store_true", help="machine-readable summary for agents")
@@ -144,6 +144,8 @@ def main(argv=None):
     p.add_argument("--verbose", action="store_true")
     p.set_defaults(fn=_lazy("pulse", "run"))
     a = ap.parse_args(argv)
+    if getattr(a, "agents", None):
+        a.agents = sorted({"gemini" if x == "antigravity" else x for x in a.agents})
     return a.fn(a)
 
 

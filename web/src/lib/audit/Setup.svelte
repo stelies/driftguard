@@ -56,7 +56,7 @@
 	{#if agents.some(([a, i]) => i && a in rulesFor && !rulesFor[a])}
 		<Card.Root class="gap-1 px-5 py-4">
 			<div class="text-sm font-medium">Other agents have no rules file</div>
-			<p class="text-sm text-muted-foreground">Codex reads ~/.codex/AGENTS.md and Gemini reads ~/.gemini/GEMINI.md. Copy your main rules there; `driftguard guard` writes the same drift-guard block to all of them.</p>
+			<p class="text-sm text-muted-foreground">Codex reads ~/.codex/AGENTS.md and Antigravity reads ~/.gemini/GEMINI.md. Copy your main rules there; `driftguard guard` writes the same drift-guard block to all of them.</p>
 		</Card.Root>
 	{/if}
 </div>

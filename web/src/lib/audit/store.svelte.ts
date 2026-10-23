@@ -95,7 +95,7 @@ export const KINDS = ['away', 'rage', 'switch'] as const;
 export const KIND_LABEL: Record<string, string> = { away: 'Away 40m+', rage: 'Frustration', switch: 'Topic switch' };
 export const kindColor = (k: string) => SERIES[KINDS.indexOf(k as never)] ?? '#898781';
 export const INK = { muted: '#898781', grid: '#2c2c2a', axis: '#383835', surface: '#1a1a19', text: '#f0efec', text2: '#c3c2b7' };
-export const AGENT_LABEL: Record<string, string> = { claude: 'Claude Code', codex: 'Codex', gemini: 'Gemini', cursor: 'Cursor' };
+export const AGENT_LABEL: Record<string, string> = { claude: 'Claude Code', codex: 'Codex', gemini: 'Antigravity', cursor: 'Cursor' };
 export const AGENT_COLOR: Record<string, string> = { claude: SERIES[1], codex: SERIES[0], gemini: SERIES[6], cursor: SERIES[2] };
 const ACTIONS_BASE: Record<string, { label: string; verb: string }> = {
 	'useful-and-good': { label: 'Keep', verb: 'Keep investing' },

@@ -4,19 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>driftguard — catch your AI-coding drift</title>
-  <meta name="description" content="driftguard audits your Claude Code, Codex, Gemini CLI and Cursor history, interviews you, and writes drift guards into your agent's rules. 100% local, zero dependencies.">
+  <meta name="description" content="driftguard audits your Claude Code, Codex, Antigravity and Cursor history, interviews you, and writes drift guards into your agent's rules. 100% local, zero dependencies.">
   <meta name="theme-color" content="#0d0e24">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="driftguard — your agent will build anything">
-  <meta property="og:description" content="driftguard asks whether you should. Drift guards for Claude Code, Codex, Gemini CLI and Cursor.">
+  <meta property="og:description" content="driftguard asks whether you should. Drift guards for Claude Code, Codex, Antigravity and Cursor.">
   <meta property="og:url" content="https://stelies.github.io/driftguard/">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="assets/fonts/big-shoulders.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Same design system as stelies.github.io: assets/site.css and assets/site.js are copied verbatim (only the palette commands differ). Bump ?v= when they change. -->
   <link rel="stylesheet" href="assets/site.css?v=1">
+  <link rel="stylesheet" href="assets/driftguard.css?v=1">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -54,17 +55,25 @@
           </span>
         </button>
 
-        <p class="eyebrow in" style="--i:1">Claude Code <i aria-hidden="true"></i> Codex <i aria-hidden="true"></i> Gemini CLI <i aria-hidden="true"></i> Cursor</p>
+        <div class="split">
+          <div class="split-copy">
+            <p class="eyebrow in" style="--i:1">Claude Code <i aria-hidden="true"></i> Codex <i aria-hidden="true"></i> Antigravity <i aria-hidden="true"></i> Cursor</p>
 
-        <div class="fitbox">
-          <h1 class="display fit" data-fit="0.62" data-letters>driftguard</h1>
-        </div>
+            <div class="fitbox">
+              <h1 class="display fit" data-fit="1" data-letters>driftguard</h1>
+            </div>
 
-        <p class="lede in" style="--i:4">Your agent will build anything you ask. driftguard asks whether you should. It audits your AI-coding history, interviews you, and writes drift guards into your agent's rules.</p>
+            <p class="lede in" style="--i:4">Your agent will build anything you ask. driftguard asks whether you should. It audits your AI-coding history, interviews you, and writes drift guards into your agent's rules.</p>
 
-        <div class="btns in" style="--i:6">
-          <a class="btn btn-dark" href="demo/">Open the live demo</a>
-          <a class="btn btn-blue" href="https://github.com/stelies/driftguard" target="_blank" rel="noopener">GitHub ↗</a>
+            <div class="btns in" style="--i:6">
+              <a class="btn btn-dark" href="demo/">Open the live demo</a>
+              <a class="btn btn-blue" href="https://github.com/stelies/driftguard" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+
+          <figure class="split-art in" style="--i:3">
+            <img src="assets/img/hero.webp" width="1400" height="1433" alt="Engraving of a seated figure lost in thought, surrounded by unfinished tools, with rays radiating outward" fetchpriority="high">
+          </figure>
         </div>
 
         <div class="hint mono in" style="--i:7" id="hint">
@@ -80,7 +89,7 @@
         <h2 class="display statement" data-words>A bug fix turns into a new app. One side project becomes seven. <s>Your agent never says no.</s></h2>
 
         <dl class="spec spec-4 rv">
-          <div><dt class="mono">Agents</dt><dd><span data-count="4">4</span><small>Claude · Codex · Gemini · Cursor</small></dd></div>
+          <div><dt class="mono">Agents</dt><dd><span data-count="4">4</span><small>Claude · Codex · Antigravity · Cursor</small></dd></div>
           <div><dt class="mono">LLM tokens</dt><dd><span data-count="0">0</span><small>to scan, report, guard</small></dd></div>
           <div><dt class="mono">Dependencies</dt><dd><span data-count="0">0</span><small>Python stdlib</small></dd></div>
           <div><dt class="mono">Data</dt><dd>Local<small>nothing uploaded</small></dd></div>
@@ -261,7 +270,7 @@
         </a>
       </nav>
 
-      <p class="fr">Claude · Codex · Gemini · Cursor<br>stelies.github.io/driftguard</p>
+      <p class="fr">Claude · Codex · Antigravity · Cursor<br>stelies.github.io/driftguard</p>
     </div>
   </footer>
 

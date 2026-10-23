@@ -8,5 +8,5 @@ function Fetch($src, $dst) { New-Item -ItemType Directory -Force -Path (Split-Pa
 $h = $env:USERPROFILE
 if (Test-Path "$h\.claude") { Fetch "integrations/claude/skills/driftguard/SKILL.md" "$h\.claude\skills\driftguard\SKILL.md"; Fetch "integrations/claude/skills/driftguard/findings-schema.md" "$h\.claude\skills\driftguard\findings-schema.md"; Write-Host "Claude Code: run /driftguard" }
 if (Test-Path "$h\.codex")  { Fetch "integrations/codex/skills/driftguard/SKILL.md" "$h\.codex\skills\driftguard\SKILL.md"; Fetch "integrations/codex/skills/driftguard/findings-schema.md" "$h\.codex\skills\driftguard\findings-schema.md"; Write-Host "Codex: ask 'run driftguard'" }
-if (Test-Path "$h\.gemini") { Fetch "integrations/gemini/commands/driftguard.toml" "$h\.gemini\commands\driftguard.toml"; Write-Host "Gemini CLI: /driftguard" }
+if (Test-Path "$h\.gemini") { Fetch "integrations/antigravity/workflows/driftguard.md" "$h\.gemini\antigravity\global_workflows\driftguard.md"; Fetch "integrations/antigravity/commands/driftguard.toml" "$h\.gemini\commands\driftguard.toml"; Write-Host "Antigravity: /driftguard workflow installed" }
 Write-Host "Done. Try: driftguard scan"
