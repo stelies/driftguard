@@ -9,7 +9,7 @@
 Audits your Claude Code · Codex · Antigravity · Cursor history, interviews you, hosts an interactive report on localhost, and writes **drift guards** into your agent's rules, so the next session catches you before a bug fix turns into a new app.
 
 [![CI](https://github.com/stelies/driftguard/actions/workflows/ci.yml/badge.svg)](https://github.com/stelies/driftguard/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/driftguard-cli?color=155dfc)](https://pypi.org/project/driftguard-cli/)
+[![PyPI](https://img.shields.io/pypi/v/driftguard-cli?color=155dfc&cacheSeconds=3600)](https://pypi.org/project/driftguard-cli/)
 [![Python](https://img.shields.io/badge/python-3.9%2B-155dfc)](#install)
 [![Zero deps](https://img.shields.io/badge/dependencies-0-155dfc)](https://github.com/stelies/driftguard/blob/main/pyproject.toml)
 [![100% local](https://img.shields.io/badge/data-100%25%20local-155dfc)](#privacy)
