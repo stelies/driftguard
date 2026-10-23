@@ -103,7 +103,18 @@ def _lazy(mod: str, fn: str):
     return run
 
 
+def _utf8_stdio():
+    # Windows consoles/pipes default to cp1252 when output is captured (e.g. a Claude Code hook): never crash on "·" or "→".
+    for s in (sys.stdout, sys.stderr):
+        if (getattr(s, "encoding", "") or "").lower().replace("-", "") != "utf8" and hasattr(s, "reconfigure"):
+            try:
+                s.reconfigure(encoding="utf-8", errors="replace")
+            except (ValueError, OSError):
+                pass
+
+
 def main(argv=None):
+    _utf8_stdio()
     ap = argparse.ArgumentParser(prog="driftguard", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--version", action="version", version=f"driftguard {__version__}")
     sub = ap.add_subparsers(dest="cmd", required=True)

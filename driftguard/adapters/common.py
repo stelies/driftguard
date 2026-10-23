@@ -38,6 +38,9 @@ def looks_bot(first_prompt: str | None, source: str = "") -> bool:
     parent = source.replace("\\", "/").rstrip("/").split("/")[-2:-1]
     if parent and parent[0].startswith(("-tmp-", "-private-var-folders-", "-var-folders-")):
         return True
+    # Windows: C:\Users\me\AppData\Local\Temp\x -> "C--Users-me-AppData-Local-Temp-x"
+    if parent and re.match(r"^[A-Za-z]--.*-AppData-Local-Temp(-|$)", parent[0]):
+        return True
     return first_prompt is None or first_prompt.startswith(BOT_PREFIXES)
 
 

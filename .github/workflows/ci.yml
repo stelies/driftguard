@@ -22,6 +22,16 @@ jobs:
           driftguard scan
           driftguard report --out "$DRIFTGUARD_HOME/report.html"
           test -s "$DRIFTGUARD_HOME/report.html"
+      - name: Native PowerShell smoke test (no bash, legacy code page)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env: { DRIFTGUARD_HOME: "${{ runner.temp }}\\dg-ps", PYTHONIOENCODING: "cp1252" }
+        run: |
+          driftguard scan | Out-String
+          driftguard pulse --verbose | Out-String
+          driftguard report --out "$env:DRIFTGUARD_HOME\report.html"
+          if (-not (Test-Path "$env:DRIFTGUARD_HOME\report.html")) { exit 1 }
+          python -m driftguard --version
   web:
     runs-on: ubuntu-latest
     steps:

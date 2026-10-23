@@ -18,6 +18,8 @@ def data_dir() -> Path:
 
 def wsl_windows_homes() -> list[Path]:
     """On WSL, Windows-side agent data lives under /mnt/c/Users/*."""
+    if os.name == "nt" or not hasattr(os, "uname"):
+        return []
     base = Path("/mnt/c/Users")
     if not base.is_dir() or "microsoft" not in os.uname().release.lower():
         return []

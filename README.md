@@ -63,6 +63,8 @@ curl -fsSL https://raw.githubusercontent.com/stelies/driftguard/main/scripts/ins
 irm https://raw.githubusercontent.com/stelies/driftguard/main/scripts/install.ps1 | iex           # Windows
 ```
 
+Windows is native: no WSL, no Node, no admin rights. PowerShell or cmd, with Python 3.9+ (`winget install Python.Python.3.13`). It reads Claude Code from `%USERPROFILE%\.claude`, and the `driftguard pulse` hook works there unchanged.
+
 <details>
 <summary><b>Claude Code</b>: plugin or skill</summary>
 
@@ -193,7 +195,7 @@ The CLI costs zero. The optional scoring pass reads compact prompt-only digests,
 Only between its own markers (<code>&lt;!-- driftguard:global v1 --&gt;</code> … <code>&lt;!-- /driftguard:global --&gt;</code>), only with <code>--apply</code>, and with a <code>.bak</code> backup. Everything outside the markers is untouched.
 </details>
 <details><summary><b>Windows? WSL?</b></summary>
-Yes. Paths resolve via <code>%USERPROFILE%</code>; on WSL it also reads the Windows-side histories under <code>/mnt/c/Users/*</code>. CI runs on Windows, macOS and Linux.
+Both. On native Windows it runs from PowerShell or cmd: paths resolve via <code>%USERPROFILE%</code> / <code>%APPDATA%</code> (and <code>CLAUDE_CONFIG_DIR</code> if set), output is UTF-8 even through legacy code-page pipes, and the report opens in your default browser. If <code>driftguard</code> is not found right after installing, reopen the terminal or use <code>py -m driftguard</code>. On WSL it also reads the Windows-side histories under <code>/mnt/c/Users/*</code>. CI runs the tests on Windows (including a PowerShell-only smoke test), macOS and Linux.
 </details>
 <details><summary><b>Codex / Antigravity / Cursor formats change. Will it break?</b></summary>
 Adapters are defensive (unknown events are skipped) and covered by fixture tests. Codex <code>.jsonl.zst</code> needs <code>pip install driftguard-cli[zstd]</code>.
